@@ -1,0 +1,12 @@
+.bdy {
+    background-color: lightblue;
+}
+
+#logo-charity{
+    width: 9vw;
+    height: 12vh;
+}
+
+.navbar .navbar-dark{
+    color: #00d45f;
+}
