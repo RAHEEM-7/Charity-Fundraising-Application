@@ -1,3 +1,4 @@
+from logging import exception
 from flask import Flask, render_template,request,jsonify,session
 from flask_cors import CORS
 from numpy import empty
@@ -33,24 +34,35 @@ def index():
 
 @app.post("/signup")
 def signup():
-    print("Backend")
     text=request.get_json()
     name = text['name']
     email = text['email']
     password = text['password']
     username = text['username']
     phone = text['phone']
-   
-    try: 
-        user = user(name=name, email=email, password=password, username=username, phone=phone)
-        print(user)
-        db.session.add(user)
-        print("User added")
-        db.session.commit()
-        print("User committed")
-    except:
-        print("Something Went Wrong")    
-    message={"message":"Successfully Signed Up"}
+    exists = db.session.query(
+        db.session.query(user).filter_by(user_username=username).exists()
+    ).scalar() 
+    if exists:
+        print("User already exists")
+        return jsonify({"flag": "0"})
+    else :
+        try: 
+            user1 = user(
+                #user_id=userid,
+                user_fullname=name, 
+                user_email=email, 
+                user_password=password,
+                user_username=username, 
+                user_phone=phone)
+            print(user1)
+            db.session.add(user1)
+            print("User added")
+            db.session.commit()
+            print("User committed")
+        except exception as ex:
+            print("Something Went Wrong",ex)    
+    message={"flag":"1"}
 
     return jsonify(message)
 

@@ -25,6 +25,6 @@ class user(db.Model):
   user_phone = db.Column(db.String(255), nullable=False)
   vkey = db.Column(db.String(45), default=None)
   verified = db.Column(db.String(1), default='0')
-  user_reg_date = db.Column(db.TIMESTAMP, nullable=False)
+  user_reg_date = db.Column(db.TIMESTAMP, nullable=False,default=datetime.datetime.now())
 
 # db.create_all()
