@@ -1,0 +1,39 @@
+.bdy {
+    background-color: lightblue;
+}
+
+#logo-charity{
+    width: 9vw;
+    height: 12vh;
+}
+
+.navbar .navbar-dark{
+    color: #00d45f;
+}
+
+#carousal1{
+    width: 70%;
+}
+.carousel-indicators li {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    margin: 10px;
+    box-shadow: inset 1px 1px 1px 1px rgba(0,0,250,0.5);    
+  }
+.carousel-inner > .carousel-item > img{
+    height: 500px;
+}
+
+.parent {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+.child {
+  display: inline-block;
+  border: 1px solid red;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}

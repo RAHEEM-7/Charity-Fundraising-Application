@@ -6,7 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charity Life</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> -->
+  <link href="/static/css/style.css" rel="stylesheet">
 	<!-- <link rel="icon" type="image/png" href="images/logo.png"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -21,7 +22,7 @@
   <body class="bdy">
     <!-- Responsive Nav Bar -->
     <nav class="navbar navbar-dark navbar-expand-lg bg-secondary bg-gradient">
-        <!-- <a class="navbar-brand" href="#"><img src="images/logo.png" id="logo-charity" alt=""/></a> -->
+        <img src="/static/images/logo.png" id="logo-charity" alt=""/>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,19 +36,43 @@
               <div class="dropdown-divider"></div><p class="dropdown-item" data-trigger="hover" data-toggle="popover" data-content="Please login for fundraising!!" data-placement="bottom">Other Cause</p>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link" href="howitworks.html">How it works</a></li>
+          <li class="nav-item"><a class="nav-link" href="/howitworks.html">How it works</a></li>
           <form class="form-inline ">
             <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" type="text" size="30" onkeyup="showResult(this.value)">
             <div id="livesearch"></div>
           </form>
           <li class="nav-item"><a class="btn btn-outline-success" type="button" href="https://api.whatsapp.com/send?phone=918919674844" target="_blank"><i class="fab fa-whatsapp" style="color: green;"></i> Chat</a></li>
           <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button"  data-toggle="popover" title="Please login to start a fundraiser!!" data-placement="bottom">New fundraiser</button>
-          <li class="nav-item navstyle"><a class="nav-link btn btn-sm" type="button" data-toggle="modal" data-target="#exampleModalCenter" style="width:auto;">login/signup</a></li>
+          <li class="nav-item navstyle"><a class="nav-link btn btn-sm" type="button" data-toggle="modal" data-target="#Login" style="width:auto;">login/signup</a></li>
         </ul>
         </div>
     </nav>
-      <!--*** Responsive Nav Bar ***-->   
-      
+    <!--*** Responsive Nav Bar ***-->   
+    <!--*** Login Modal ***-->
+      <div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle" style="text-align:center;">Log In</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <br>
+                <span>Log In As Organizer</span>
+                <br><br>
+                <form id="login">
+                    <input type="text" id="usrname" placeholder="username" pattern="[A-Za-z0-9]+" title="Username should only contain letters and numbers only. e.g. john12345" required><br><br>
+                    <input type="password" id = "pasword" name="password" placeholder="password" required><br><br>
+                    <button type="submit" class="btn btn-info">Log In</button>
+                    <p  data-dismiss="modal" data-target="#exampleModalCenter" data-toggle="modal" style="width:auto;color:blue;">New to Charity Life? Sign Up</p>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--*** Login Modal ***-->
     <!--singup-->   
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -74,45 +99,48 @@
                   <input type="tel" id="phone" placeholder="Phone: 98********" pattern="[0-9]{10}" required><br><br>
                   <input type="checkbox" name="" required><span id="agreeterms"> Agree all terms and conditions</span><br><br>
                   <button type="submit" class="btn btn-info">Sign Up</button>
-                  <p data-toggle="modal" data-target="#exampleModalCenter" style="width:auto;color:blue;">LogIn</p>
+                  <p data-toggle="modal" data-dismiss="modal" data-target="#Login" style="width:auto;color:blue;">Already an User? LogIn</p>
               </form>
           </div>
         </div>
       </div>
     </div>
     <!-- signup -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle" style="text-align:center;">Signup</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <br>
-              <span>Sign Up As Organizer</span>
-              <br><br>
-              <form id="sign">
-                  <input type="text" id="name" placeholder="Enter full Name" required><br><br>
-                  <input type="text" id="username" placeholder="username" pattern="[A-Za-z0-9]+" title="Username should only contain letters and numbers only. e.g. john12345" required><br><br>
-                  <input type="email" id="email" placeholder="E-mail" required>
-                  <button id="otpsend" class="btn btn-info">Send Otp</button>
-                  <br><br>
-                  <input type="text" id="otp" placeholder="Enter OTP" required><br><br>
-                  <input type="password" id = "password" name="password" placeholder="password" required><br><br>
-                  <input type="password" id="repeat-password" name="repeat-password" placeholder="Confirm password" required><br><br>
-                  <input type="tel" id="phone" placeholder="Phone: 98********" pattern="[0-9]{10}" required><br><br>
-                  <input type="checkbox" name="" required><span id="agreeterms"> Agree all terms and conditions</span><br><br>
-                  <button type="submit" class="btn btn-info">Sign Up</button>
-                  <p data-toggle="modal" data-target="#exampleModalCenter" style="width:auto;color:blue;">LogIn</p>
-              </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- signup -->
-  <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>   
+      <main>
+        <header>
+            <!--Header Carousal-->
+            <section id="carousal1">
+                <div class="detailed-view-bg-container">
+                    <div class="detailed-view-card-container">
+                        <div id="carousel1" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel1" data-slide-to="1"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="https://media.istockphoto.com/photos/the-concept-of-unity-cooperation-teamwork-and-charity-picture-id1290692045?b=1&k=20&m=1290692045&s=170667a&w=0&h=mjKRZccVf2DDaVN83LFmpunPjuBNrCO3kuetFCPm45g=" class="d-block w-100 " alt=""/>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h1>Together we can improve lives</h1>
+                                        <h3>So Lets do it!</h3>
+                                    </div>
+                                </div>
+                                <div class="carousel-item"><img src="https://ladyboss.com/blog/wp-content/uploads/sites/61/2019/12/blog_RelentlesslyPositiveSparkle_header.png" class="d-block w-100 " alt=""/>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h1>Because they need your help, Don't let them down</h1>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+          
+        <!-- *** Header Carousal *** -->
+
+
+
+  <!-- <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>    -->
+  <script src="/static/script.js" charset="utf-8"></script>
   </body>
 

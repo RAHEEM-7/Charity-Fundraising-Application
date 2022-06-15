@@ -5,7 +5,7 @@ function signupValidate() {
     let pass = document.getElementById('password').value ;
     let conpass = document.getElementById('repeat-password').value;
     let otpuser=document.getElementById('otp').value;
-     if (pass == conpass && otp==otpuser) 
+     if (pass == conpass) 
      {
         document.getElementById('otp').style.borderColor = "green" ;
         document.getElementById('password').style.borderColor = "green" ;
@@ -20,10 +20,10 @@ function signupValidate() {
         signup(data);
         return true ;
      } 
-     else if (otp!=otpuser){
-      document.getElementById('otp').style.borderColor = "#C7001A" ;
-      return false;
-     }
+    //  else if (otp!=otpuser){
+    //   document.getElementById('otp').style.borderColor = "#C7001A" ;
+    //   return false;
+    //  }
      else 
      {
          document.getElementById('password').style.borderColor = "#C7001A" ;
@@ -65,28 +65,55 @@ function sendEmail() {
 
 }
 
- function signup(data) {
-    var url = "http://127.0.0.1:5000/signup"; 
-    console.log("abc", data);
-    fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response);
-        if (parseInt(response.flag)==1){
-          confirm("Signed up succesfully, you can login to your account");
-          location.reload();
-        }
-        else {
-          alert("Username already exists");
-        }
-      })
-      .catch((error) => console.log("Error h:", error));
-  }
+function signup(data) {
+  var url = "http://127.0.0.1:5000/signup"; 
+  console.log("abc", data);
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify(data),
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  .then((res) => res.json())
+  .then((response) => {
+    console.log(response);
+    if (parseInt(response.flag)==1){
+      confirm("Signed up succesfully, you can login to your account");
+      location.reload();
+    }
+    else {
+      alert("Username already exists");
+    }
+  })
+  .catch((error) => console.log("Error h:",error));
+}
   
+document.getElementById("login").onsubmit = (e) => {
+  e.preventDefault();
+  console.log("test2");
+  var url = "http://127.0.0.1:5000/login";
+  let username = document.getElementById('usrname').value ;
+  let password = document.getElementById('pasword').value ;
+  let data = {username:username,password:password}
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify(data),
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }) 
+  .then((res) => res.json())
+  .then((response) => {
+    console.log(response);
+    if (parseInt(response.flag)==1){
+      location.replace('blog.html');
+    }
+    else {
+      // location.reload();
+    }
+  })
+  .catch((error) => console.log("Error h:", error));
+}
