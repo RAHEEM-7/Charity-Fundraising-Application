@@ -10,7 +10,7 @@ from logging import exception
 
 from flask import Flask,render_template,request,redirect,jsonify,session
 from flask_login import login_required, current_user, login_user, logout_user
-from Models import user,db,login
+# from Models import user,db,login
 import random
 
 app=Flask(__name__)
@@ -19,6 +19,8 @@ app.secret_key="hello"
 # app.config["SECRET_KEY"] = '571ebf8e13ca209536c29be68d435c00'
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///fundraise.db'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+from Models import user,db,login
 # db = SQLAlchemy(app)
 #mail=Mail(app)
 #migrate = Migrate(app, db)
@@ -79,6 +81,7 @@ def signup():
             print("User added")
             db.session.commit()
             print("User committed")
+            login_user(user1)
         except exception as ex:
             print("Something Went Wrong",ex)    
     # message={"flag":"1"}

@@ -60,27 +60,27 @@
 			</ul>
 
 			<div id="cd-login"> <!-- log in form -->
-				<form class="cd-form">
+				<form class="cd-form" id="login">
 					<p class="fieldset">
+						<label class="image-replace cd-username" for="usrname">Username</label>
+						<input class="full-width has-padding has-border" type="text" id="usrname" placeholder="Username" pattern="[A-Za-z0-9]+" required>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+					<!-- <p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
 						<span class="cd-error-message">Error message here!</span>
-					</p>
+					</p> -->
 
 					<p class="fieldset">
-						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password">
-						<a href="#0" class="hide-password">Hide</a>
+						<label class="image-replace cd-password" for="pasword">Password</label>
+						<input class="full-width has-padding has-border" id="pasword" type="password"  placeholder="Password" required>
+						<a href="#0" class="hide-password">Show</a>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
-
+					
 					<p class="fieldset">
-						<input type="checkbox" id="remember-me" checked>
-						<label for="remember-me">Remember me</label>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login">
+						<button class="full-width btn btn-info" type="submit">Login</button> 
 					</p>
 				</form>
 				
@@ -89,33 +89,51 @@
 			</div> <!-- cd-login -->
 
 			<div id="cd-signup"> <!-- sign up form -->
-				<form class="cd-form">
+				<form class="cd-form" id="sign">
 					<p class="fieldset">
-						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
+						<input class="full-width has-padding has-border" type="text" id="name" placeholder="Enter full Name" required>
+					</p>
+
+					<p class="fieldset">
+						<label class="image-replace cd-username" for="username">Username</label>
+						<input class="full-width has-padding has-border" type="text" id="username" placeholder="Username" pattern="[A-Za-z0-9]+" title="Username should only contain letters and numbers only. e.g. john12345" required>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
 					<p class="fieldset">
-						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
+						<label class="image-replace cd-email" for="email">E-mail</label>
+						<input class="full-width has-padding has-border" type="email" id="email" placeholder="E-mail" required>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+					<button style="width:auto; display: inline;" id="otpsend" class="btn btn-info">Send Otp</button>
+					<!-- <br><br> -->
+					<input type="text" id="otp" placeholder="Enter OTP" required><br><br>
+
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="password">Password</label>
+						<input class="full-width has-padding has-border" id="password" type="password"  placeholder="Password" required>
+						<a href="#0" class="hide-password">Show</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+					
+					<p class="fieldset">
+						<label class="image-replace cd-password" for="repeat-password">Confirm Password</label>
+						<input class="full-width has-padding has-border" id="repeat-password" type="password"  placeholder="Confirm Password" required>
+						<a href="#0" class="hide-password">Show</a>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
 					<p class="fieldset">
-						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
-						<a href="#0" class="hide-password">Hide</a>
-						<span class="cd-error-message">Error message here!</span>
+						<input class="full-width has-padding has-border" type="tel" id="phone" placeholder="Phone: 98********" pattern="[0-9]{10}" required><br><br>
 					</p>
 
 					<p class="fieldset">
-						<input type="checkbox" id="accept-terms">
-						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+						<input type="checkbox" id="agreeterms">
+						<label for="agreeterms">I agree to the <a href="#0">Terms</a></label>
 					</p>
 
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Create account">
+						<button class="full-width has-padding btn btn-info" type="submit">Create account</button> 
 					</p>
 				</form>
 
@@ -123,7 +141,7 @@
 			</div> <!-- cd-signup -->
 
 			<div id="cd-reset-password"> <!-- reset password form -->
-				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
+				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive an OTP to your</p>
 
 				<form class="cd-form">
 					<p class="fieldset">
@@ -132,6 +150,29 @@
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
+					<button style="width:auto; display: inline;" id="forget-otpsend" class="btn btn-info">Send Otp</button>
+					<input type="text" id="otp" placeholder="Enter OTP" required><br><br>
+					
+
+					<p class="fieldset forget">
+						<label class="image-replace cd-username" for="forget-username">Username</label>
+						<input class="full-width has-padding has-border" type="text" id="forget-username" placeholder="Username" pattern="[A-Za-z0-9]+" title="Username should only contain letters and numbers only. e.g. john12345" required>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+
+					<p class="fieldset forget">
+						<label class="image-replace cd-password" for="forget-password">Password</label>
+						<input class="full-width has-padding has-border" id="forget-password" type="password"  placeholder="Password" required>
+						<a href="#0" class="hide-password">Show</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
+					
+					<p class="fieldset forget">
+						<label class="image-replace cd-password" for="forget-repeat-password">Confirm Password</label>
+						<input class="full-width has-padding has-border" id="forget-repeat-password" type="password"  placeholder="Confirm Password" required>
+						<a href="#0" class="hide-password">Show</a>
+						<span class="cd-error-message">Error message here!</span>
+					</p>
 					<p class="fieldset">
 						<input class="full-width has-padding" type="submit" value="Reset password">
 					</p>

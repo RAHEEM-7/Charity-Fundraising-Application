@@ -320,6 +320,9 @@ html * {
   .cd-form input.has-padding {
     padding: 12px 20px 12px 50px;
   }
+  .cd-form button {
+    width: 100%;
+  }
   .cd-form input.has-border {
     border: 1px solid #d2d8d8;
     -webkit-appearance: none;
@@ -487,4 +490,8 @@ html * {
   
   #cd-login.is-selected, #cd-signup.is-selected, #cd-reset-password.is-selected {
     display: block;
+  }
+
+  .forget {
+    display: none;
   }
