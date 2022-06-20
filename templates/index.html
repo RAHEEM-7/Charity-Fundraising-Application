@@ -39,7 +39,7 @@
               <div class="dropdown-divider"></div><p class="dropdown-item" data-trigger="hover" data-toggle="popover" data-content="Please login for fundraising!!" data-placement="bottom">Other Cause</p>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/howitworks.html">How it works</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('howitworks')}}">How it works</a></li>
           <form class="form-inline ">
             <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" type="text" size="30" onkeyup="showResult(this.value)">
             <div id="livesearch"></div>
@@ -152,7 +152,7 @@
 
 					<button style="width:auto; display: inline;" id="forget-otpsend" class="btn btn-info">Send Otp</button>
 					<input type="text" id="forget-otp" placeholder="Enter OTP">
-					<button id="verify" onclick="otpVerification()">verify</button>
+					<button id="verify" onclick="otpVerification()" >verify</button>
 					<br><br>
 					
 

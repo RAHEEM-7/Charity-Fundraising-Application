@@ -1,3 +1,4 @@
+from cmath import log
 from logging import exception
 # from flask import Flask, render_template,request,jsonify,session
 # from flask_cors import CORS
@@ -47,7 +48,7 @@ def index():
 
 @app.route('/blogs')
 @login_required
-def blog():
+def blogs():
     return render_template('blog.html')
 
 @app.post("/signup")
@@ -110,6 +111,7 @@ def login():
 
 @app.route('/logout')
 def logout():
+    print("Logging out")
     logout_user()
     return redirect('/blogs')
 
@@ -133,6 +135,11 @@ def forget():
 def MyAccount():
     print("My Account")
     return render_template('MyAccount.html')
+
+@app.route('/howitworks')
+def howitworks():
+    print("How it work")
+    return render_template('howitworks.html')
 # app.run(host='localhost', port=5000)
 if __name__=="__main__":
     app.run(debug=True)

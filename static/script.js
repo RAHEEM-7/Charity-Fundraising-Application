@@ -63,9 +63,9 @@ function otpVerification(){
 	}
 }
 
-$('#verify').on('click', function(event){
-	otpVerification()
-});
+// $('#verify').on('click', function(event){
+// 	otpVerification()
+// });
 
 function sendEmail(mail_id) {
   otp=Math.floor(Math.random()*100000);
@@ -175,6 +175,17 @@ document.getElementById("forgot").onsubmit = (e) => {
 	  .catch((error) => console.log("Error h:", error));
 }
 
+// $('#profile').on('click', function(event){
+// 	event.preventDefault();
+// 	console.log("profile came");
+// });
+
+function showAccount() {
+	// e.preventDefault();
+	console.log("My account");
+	var url = "http://127.0.0.1:5000/MyAccount";
+	location.replace(url);
+}
 
 jQuery(document).ready(function($){
 	var $form_modal = $('.cd-user-modal'),
