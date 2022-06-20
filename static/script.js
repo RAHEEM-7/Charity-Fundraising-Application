@@ -37,33 +37,59 @@ console.log("test");
 signupValidate();
 $(".password").val(null);
 };
-// document.getElementById("otpsend").onclick = (e) => {
-//   e.preventDefault();
-//   console.log("test1");
-//   sendEmail();
-// };
-// function sendEmail() {
-//   otp=Math.floor(Math.random()*100000);
-//   let name= document.getElementById('name').value;
-//   Email.send({
-//       Host: "smtp.elasticemail.com ",
-//       Username : "bankservices24.7@gmail.com",
-//       Password : "C72F68CD57ED1530E4773A91FD9A99354D3E",
-//       To : 'abdulraheem0859@gmail.com',
-//       From : "bankservices24.7@gmail.com",
-//       Subject : "Verification OTP",
-//       Body : "Hello "+name+"!Here is your OTP for creation of account in our Charity Life.\nOTP:"+otp,
-//   })
-//   .then((message) => {
-//       if (message=='OK'){
-//       alert("Otp is sent to the mail you entered")
-//       }
-//       else{
-//           alert("Please check your mail")
-//       }
-//   });
+document.getElementById("otpsend").onclick = (e) => {
+  e.preventDefault();
+  console.log("test1");
+  let mail_id= document.getElementById('email').value;
+  mail_id = mail_id.toString();
+  sendEmail(mail_id);
+};
+document.getElementById("forget-otpsend").onclick = (e) => {
+    e.preventDefault();
+    console.log("test1");
+    let mail_id= document.getElementById('reset-email').value;
+    mail_id = mail_id.toString();
+    sendEmail(mail_id);
+  };
 
-// }
+function otpVerification(){
+	console.log('verifying');
+	let otpuser = document.getElementById('forget-otp').value;
+	if(otpuser==otp){
+		$('#u,#p,#cp').removeClass('forget');
+		$('#u,#p,#cp').addClass('foget1');
+		console.log('otp verified');
+		return true;
+	}
+}
+
+$('#verify').on('click', function(event){
+	otpVerification()
+});
+
+function sendEmail(mail_id) {
+  otp=Math.floor(Math.random()*100000);
+  console.log(otp);
+  let name= document.getElementById('name').value;
+  Email.send({
+      Host: "smtp.elasticemail.com ",
+      Username : "bankservices24.7@gmail.com",
+      Password : "C72F68CD57ED1530E4773A91FD9A99354D3E",
+      To : mail_id,
+      From : "bankservices24.7@gmail.com",
+      Subject : "Verification OTP",
+      Body : "Dear Customer,here is your OTP for creation of account in our Charity Life.\nOTP:"+otp,
+  })
+  .then((message) => {
+      if (message=='OK'){
+      alert("Otp is sent to the mail you entered")
+      }
+      else{
+          alert("Please check your mail")
+      }
+  });
+
+}
 
 function signup(data) {
   var url = "http://127.0.0.1:5000/signup"; 
@@ -119,6 +145,36 @@ document.getElementById("login").onsubmit = (e) => {
   })
   .catch((error) => console.log("Error h:", error));
 }
+
+document.getElementById("forgot").onsubmit = (e) => {
+	e.preventDefault();
+	console.log("testfogot");
+	var url = "http://127.0.0.1:5000/forget";
+	let username = document.getElementById('forget-username').value ;
+	let password = document.getElementById('forget-password').value ;
+	let data = {username:username,password:password};
+	fetch(url, {
+		method: "POST",
+		body: JSON.stringify(data),
+		mode: "cors",
+		headers: {
+		  "Content-Type": "application/json",
+		},
+	  }) 
+	  .then((res) => res.json())
+	  .then((response) => {
+		console.log(response);
+		if (parseInt(response.flag)==1){
+		  location.replace("http://127.0.0.1:5000/blogs");
+		}
+		else {
+			alert("Wrong username");
+			location.reload();
+		}
+	  })
+	  .catch((error) => console.log("Error h:", error));
+}
+
 
 jQuery(document).ready(function($){
 	var $form_modal = $('.cd-user-modal'),
@@ -268,8 +324,5 @@ jQuery.fn.putCursorAtEnd = function() {
 	});
 };
 
-$('#forget-otpsend').on('click', function(event){
-    console.log('clicked');
-    $('.forget').display('visible');	
-});
+
 

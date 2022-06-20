@@ -143,7 +143,7 @@
 			<div id="cd-reset-password"> <!-- reset password form -->
 				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive an OTP to your</p>
 
-				<form class="cd-form">
+				<form class="cd-form" id="forgot">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="reset-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
@@ -151,30 +151,33 @@
 					</p>
 
 					<button style="width:auto; display: inline;" id="forget-otpsend" class="btn btn-info">Send Otp</button>
-					<input type="text" id="otp" placeholder="Enter OTP" required><br><br>
+					<input type="text" id="forget-otp" placeholder="Enter OTP">
+					<button id="verify" onclick="otpVerification()">verify</button>
+					<br><br>
 					
 
-					<p class="fieldset forget">
+
+					<p class="fieldset forget" id="u">
 						<label class="image-replace cd-username" for="forget-username">Username</label>
 						<input class="full-width has-padding has-border" type="text" id="forget-username" placeholder="Username" pattern="[A-Za-z0-9]+" title="Username should only contain letters and numbers only. e.g. john12345" required>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
-					<p class="fieldset forget">
+					<p class="fieldset forget" id="p">
 						<label class="image-replace cd-password" for="forget-password">Password</label>
 						<input class="full-width has-padding has-border" id="forget-password" type="password"  placeholder="Password" required>
 						<a href="#0" class="hide-password">Show</a>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 					
-					<p class="fieldset forget">
+					<p class="fieldset forget" id="cp">
 						<label class="image-replace cd-password" for="forget-repeat-password">Confirm Password</label>
 						<input class="full-width has-padding has-border" id="forget-repeat-password" type="password"  placeholder="Confirm Password" required>
 						<a href="#0" class="hide-password">Show</a>
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Reset password">
+						<button class="full-width has-padding btn btn-info" type="submit">Reset password</button>
 					</p>
 				</form>
 
@@ -184,6 +187,37 @@
 		</div> <!-- cd-user-modal-container -->
 	</div> <!-- cd-user-modal -->
    
+	<main>
+        <header>
+            <!--Header Carousal-->
+            <section id="carousal1">
+                <div class="detailed-view-bg-container">
+                    <div class="detailed-view-card-container">
+                        <div id="carousel1" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel1" data-slide-to="1"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active"><img src="https://media.istockphoto.com/photos/the-concept-of-unity-cooperation-teamwork-and-charity-picture-id1290692045?b=1&k=20&m=1290692045&s=170667a&w=0&h=mjKRZccVf2DDaVN83LFmpunPjuBNrCO3kuetFCPm45g=" class="d-block w-100 " alt=""/>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h1>Together we can improve lives</h1>
+                                        <h3>So Lets do it!</h3>
+                                    </div>
+                                </div>
+                                <div class="carousel-item"><img src="https://ladyboss.com/blog/wp-content/uploads/sites/61/2019/12/blog_RelentlesslyPositiveSparkle_header.png" class="d-block w-100 " alt=""/>
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h1>Because they need your help, Don't let them down</h1>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+          
+        <!-- *** Header Carousal *** -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/static/script.js" charset="utf-8"></script>
   </body>

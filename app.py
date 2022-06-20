@@ -113,6 +113,26 @@ def logout():
     logout_user()
     return redirect('/blogs')
 
+@app.post('/forget')
+def forget():
+    print("Forget")
+    text=request.get_json()
+    username = text['username']
+    password = text['password']
+    user1 = user.query.filter_by(user_username = username).first()
+    if user1 is not None:
+        user1.set_password(password)
+        db.session.commit()
+        login_user(user1)
+        return jsonify({"flag":"1"})
+    return jsonify({"flag":"0"})
+
+
+@app.route('/MyAccount')
+@login_required
+def MyAccount():
+    print("My Account")
+    return render_template('MyAccount.html')
 # app.run(host='localhost', port=5000)
 if __name__=="__main__":
     app.run(debug=True)

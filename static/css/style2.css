@@ -495,3 +495,6 @@ html * {
   .forget {
     display: none;
   }
+  .forget1 {
+    display: block;
+  }
