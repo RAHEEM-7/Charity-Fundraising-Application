@@ -1,32 +1,16 @@
 from cmath import log
 from logging import exception
-# from flask import Flask, render_template,request,jsonify,session
-# from flask_cors import CORS
-# from numpy import empty
-# from sqlalchemy import null
-# from flask_sqlalchemy import SQLAlchemy
-# import json
-# import random
-# from queue import Queue
-
 from flask import Flask,render_template,request,redirect,jsonify,session
 from flask_login import login_required, current_user, login_user, logout_user
-# from Models import user,db,login
 import random
 
 app=Flask(__name__)
 app.secret_key="hello"
 
-# app.config["SECRET_KEY"] = '571ebf8e13ca209536c29be68d435c00'
 app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///fundraise.db'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 from Models import user,db,login,fundraise
-# db = SQLAlchemy(app)
-#mail=Mail(app)
-#migrate = Migrate(app, db)
-
-
 
 db.init_app(app)
 login.init_app(app)

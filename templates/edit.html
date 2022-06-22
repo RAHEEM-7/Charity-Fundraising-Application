@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="/static/css/style2.css">
-	<!-- <link rel="icon" type="image/png" href="images/icon.png"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -65,23 +64,6 @@
             <input class="full-width has-padding has-border" type="email" id="edit-email" value="{{ current_user.user_email }}" required>
             <span class="cd-error-message">Error message here!</span>
         </p>
-        <!-- <button style="width:auto; display: inline;" id="otpsend" class="btn btn-info">Send Otp</button>
-        <input type="text" id="otp" placeholder="Enter OTP" required><br><br>
-
-        <p class="fieldset">
-            <label class="image-replace cd-password" for="password">Password</label>
-            <input class="full-width has-padding has-border" id="password" type="password"  placeholder="Password" required>
-            <a href="#0" class="hide-password">Show</a>
-            <span class="cd-error-message">Error message here!</span>
-        </p>
-        
-        <p class="fieldset">
-            <label class="image-replace cd-password" for="repeat-password">Confirm Password</label>
-            <input class="full-width has-padding has-border" id="repeat-password" type="password"  placeholder="Confirm Password" required>
-            <a href="#0" class="hide-password">Show</a>
-            <span class="cd-error-message">Error message here!</span>
-        </p> -->
-
         <p class="fieldset">
             <input class="full-width has-padding has-border" type="tel" id="edit-phone"  pattern="[0-9]{10}" value="{{ current_user.user_phone }}" required><br><br>
         </p>

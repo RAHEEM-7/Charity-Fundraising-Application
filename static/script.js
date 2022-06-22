@@ -20,10 +20,10 @@ function signupValidate() {
         signup(data);
         return true ;
      } 
-    //  else if (otp!=otpuser){
-    //   document.getElementById('otp').style.borderColor = "#C7001A" ;
-    //   return false;
-    //  }
+     else if (otp!=otpuser){
+      document.getElementById('otp').style.borderColor = "#C7001A" ;
+      return false;
+     }
      else 
      {
          document.getElementById('password').style.borderColor = "#C7001A" ;
@@ -31,27 +31,6 @@ function signupValidate() {
          return false ;
      }  
  }
-
-document.getElementById("sign").onsubmit = (e) => {
-e.preventDefault();
-console.log("test");
-signupValidate();
-$(".password").val(null);
-};
-document.getElementById("otpsend").onclick = (e) => {
-  e.preventDefault();
-  console.log("test1");
-  let mail_id= document.getElementById('email').value;
-  mail_id = mail_id.toString();
-  sendEmail(mail_id);
-};
-document.getElementById("forget-otpsend").onclick = (e) => {
-    e.preventDefault();
-    console.log("test1");
-    let mail_id= document.getElementById('reset-email').value;
-    mail_id = mail_id.toString();
-    sendEmail(mail_id);
-  };
 
 function otpVerification(){
 	console.log('verifying');
@@ -63,11 +42,6 @@ function otpVerification(){
 		return true;
 	}
 }
-
-// $('#verify').on('click', function(event){
-// 	otpVerification()
-// });
-
 function sendEmail(mail_id) {
   otp=Math.floor(Math.random()*100000);
   console.log(otp);
@@ -117,70 +91,6 @@ function signup(data) {
   })
   .catch((error) => console.log("Error h:",error));
 }
-  
-document.getElementById("login").onsubmit = (e) => {
-  e.preventDefault();
-  console.log("test2");
-  var url = "http://127.0.0.1:5000/login";
-  let username = document.getElementById('usrname').value ;
-  let password = document.getElementById('pasword').value ;
-  let data = {username:username,password:password}
-  fetch(url, {
-    method: "POST",
-    body: JSON.stringify(data),
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }) 
-  .then((res) => res.json())
-  .then((response) => {
-    console.log(response);
-    if (parseInt(response.flag)==1){
-      location.replace("http://127.0.0.1:5000/blogs");
-    }
-    else {
-        alert("Wrong username or password");
-        location.reload();
-    }
-  })
-  .catch((error) => console.log("Error h:", error));
-}
-
-document.getElementById("forgot").onsubmit = (e) => {
-	e.preventDefault();
-	console.log("testfogot");
-	var url = "http://127.0.0.1:5000/forget";
-	let username = document.getElementById('forget-username').value ;
-	let password = document.getElementById('forget-password').value ;
-	let data = {username:username,password:password};
-	fetch(url, {
-		method: "POST",
-		body: JSON.stringify(data),
-		mode: "cors",
-		headers: {
-		  "Content-Type": "application/json",
-		},
-	  }) 
-	  .then((res) => res.json())
-	  .then((response) => {
-		console.log(response);
-		if (parseInt(response.flag)==1){
-		  location.replace("http://127.0.0.1:5000/blogs");
-		}
-		else {
-			alert("Wrong username");
-			location.reload();
-		}
-	  })
-	  .catch((error) => console.log("Error h:", error));
-}
-
-
-// $('#profile').on('click', function(event){
-// 	event.preventDefault();
-// 	console.log("profile came");
-// });
 
 function showAccount() {
 	// e.preventDefault();
@@ -339,3 +249,86 @@ jQuery.fn.putCursorAtEnd = function() {
 
 
 
+document.getElementById("sign").onsubmit = (e) => {
+	e.preventDefault();
+	console.log("test");
+	signupValidate();
+	$(".password").val(null);
+};
+document.getElementById("otpsend").onclick = (e) => {
+	e.preventDefault();
+	console.log("test1");
+	let mail_id= document.getElementById('email').value;
+	mail_id = mail_id.toString();
+	sendEmail(mail_id);
+};
+document.getElementById("forget-otpsend").onclick = (e) => {
+	e.preventDefault();
+	console.log("test1");
+	let mail_id= document.getElementById('reset-email').value;
+	mail_id = mail_id.toString();
+	sendEmail(mail_id);
+};
+$('#verify').on('click', function(event){
+	otpVerification()
+});
+document.getElementById("login").onsubmit = (e) => {
+	e.preventDefault();
+	console.log("test2");
+	var url = "http://127.0.0.1:5000/login";
+	let username = document.getElementById('usrname').value ;
+	let password = document.getElementById('pasword').value ;
+	let data = {username:username,password:password}
+	fetch(url, {
+	  method: "POST",
+	  body: JSON.stringify(data),
+	  mode: "cors",
+	  headers: {
+		"Content-Type": "application/json",
+	  },
+	}) 
+	.then((res) => res.json())
+	.then((response) => {
+	  console.log(response);
+	  if (parseInt(response.flag)==1){
+		location.replace("http://127.0.0.1:5000/blogs");
+	  }
+	  else {
+		  alert("Wrong username or password");
+		  location.reload();
+	  }
+	})
+	.catch((error) => console.log("Error h:", error));
+}
+document.getElementById("forgot").onsubmit = (e) => {
+	e.preventDefault();
+	console.log("testfogot");
+	var url = "http://127.0.0.1:5000/forget";
+	let username = document.getElementById('forget-username').value ;
+	let password = document.getElementById('forget-password').value ;
+	let data = {username:username,password:password};
+	fetch(url, {
+		method: "POST",
+		body: JSON.stringify(data),
+		mode: "cors",
+		headers: {
+		  "Content-Type": "application/json",
+		},
+	  }) 
+	  .then((res) => res.json())
+	  .then((response) => {
+		console.log(response);
+		if (parseInt(response.flag)==1){
+		  location.replace("http://127.0.0.1:5000/blogs");
+		}
+		else {
+			alert("Wrong username");
+			location.reload();
+		}
+	  })
+	  .catch((error) => console.log("Error h:", error));
+}
+$('#profile').on('click', function(event){
+	event.preventDefault();
+	console.log("profile came");
+});
