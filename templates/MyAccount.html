@@ -6,6 +6,7 @@
     <title>Charity Life</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/style.css">
+
     <!-- <link rel="stylesheet" href="style.css"> -->
 	<link rel="icon" type="image/png" href="images/icon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
@@ -40,7 +41,7 @@
         <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;">Start a fundraiser</button>
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i> </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url_for('MyAccount')}}">My account</a>
+            <a class="dropdown-item" href="{{ url_for('edit')}}">Edit</a>
             <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url_for('logout')}}">Logout</a>
           </div>
         </li>
@@ -50,3 +51,4 @@
 
     <h3>Hi hojsj {{ current_user.user_username }} sjs</h3>
     <p> {{ current_user.user_email }}</p>
+  </body>

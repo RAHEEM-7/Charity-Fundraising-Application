@@ -31,6 +31,7 @@ function signupValidate() {
          return false ;
      }  
  }
+
 document.getElementById("sign").onsubmit = (e) => {
 e.preventDefault();
 console.log("test");
@@ -174,6 +175,7 @@ document.getElementById("forgot").onsubmit = (e) => {
 	  })
 	  .catch((error) => console.log("Error h:", error));
 }
+
 
 // $('#profile').on('click', function(event){
 // 	event.preventDefault();
