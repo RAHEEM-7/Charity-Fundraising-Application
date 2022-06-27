@@ -28,7 +28,8 @@ def create_table():
 @app.get("/")
 def index():
     # session['user']=str(random.randint(1,100000))
-    return render_template("index.html")
+    allFundraisers = fundraise.query.all()
+    return render_template("index.html",allFundraisers=allFundraisers)
 
 @app.route('/blogs')
 @login_required

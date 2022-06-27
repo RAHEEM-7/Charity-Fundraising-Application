@@ -14,7 +14,7 @@
 	<script src="https:/www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
 	<script src="https:/www.gstatic.com/firebasejs/6.6.1/firebase-database.js"></script>
   </head>
-  <body>
+  <body class="bdy">
     <!-- Responsive Nav Bar -->
     <nav class="navbar navbar-light navbar-expand-lg">
         <img src="/static/images/logo.png" id="logo-charity" alt=""/>
@@ -192,7 +192,207 @@
             </div>
         </section>
         <!-- *** Header Carousal *** -->
+		      <!--- Causes section -->
+			  <section id="causes"> 
+				<div class="sectiontitle">
+				  <h1><b>Causes you can raise funds for</b></h1>
+				  <pre>Be it for a personal need, social cause or a creative idea - you can count on us for
+					the project that you want to raise funds for.</pre>
+				</div>
+				<div class="container">
+					<div class="row">
+					<div class="col flip-card">
+						<div class="flip-card-inner">
+						  <div class="flip-card-front">
+							<i class="fas fa-medkit fa-3x"></i>
+						  </div>
+						  <div class="flip-card-back">
+							<h1>Medicine</h1> 
+						  </div>
+						</div>
+					  </div>
+					  <div class="col flip-card">
+						<div class="flip-card-inner">
+						  <div class="flip-card-front">
+							<i class="fas fa-monument fa-3x"></i>
+						  </div>
+						  <div class="flip-card-back">
+							<h2>Memorial</h2>
+						  </div>
+						</div>
+					  </div>
+					  <div class="col flip-card">
+						<div class="flip-card-inner">
+						  <div class="flip-card-front">
+							<i class="fas fa-baby fa-3x"></i>
+						  </div>
+						  <div class="flip-card-back">
+							<h2>Children</h2>
+						  </div>
+						</div>
+					  </div>
+					  <div class="col flip-card">
+						<div class="flip-card-inner">
+						  <div class="flip-card-front">
+							<i class="fas fa-book-open fa-3x"></i>
+						  </div>
+						  <div class="col flip-card-back">
+							<h2>Education</h2>
+						  </div>
+						</div>
+					  </div>
+					<div class="col flip-card">
+						<div class="flip-card-inner">
+						  <div class="flip-card-front">
+							<i class="fas fa-hand-holding-medical fa-3x"></i>
+						  </div>
+						  <div class="flip-card-back">
+							<h1>Others</h1> 
+						  </div>
+						</div>
+					  </div>
+				</div>
+				</div>
+			</section>
+			<!--- *** Causes section *** --->
+    <!--- Trending fundraisers section -->
+    <section id="trending-fundraisers">
+        <div class="sectiontitle">
+            <h1><b>Trending Fundraisers</b></h1>
+            <p>View the fundraisers that are most active right now </p>
+        </div>
+        <div class="container my-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-12">
+                    <div id="carousel2" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                          <li data-target="#carousel2" data-slide-to="0" class="active"></li>
+                          <li data-target="#carousel2" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner">
+							
+                          <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-6 mb-4">
+                                    <div class="card mr-3">
+                                        <div class="card-body">
+                                          <h2>{{ allFundraisers[0].fundraise_name }}</h2>
+                                          <p><i class="fas fa-user"></i> by {{allFundraisers[0].fundraiseCreator }}</p>
+                                          <div class="progress-text">
+                                              <pre class="progress-top"><b>$2000</b> raised out of 
+$24000</pre>
+                                              <div class="progress">
+                                                  <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:8.66%"></div>
+                                              </div>
+                                          </div>
+                                          <div class="flex-container">
+                                            <div class="button-shr"><p><i class="far fa-clock"></i>20 days left</p><h2 class="btn btn-light btn btn-outline-secondary"><a class="share" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i> Share</a></h2></div>
+                                            <div class="button-dnt"><p><i class="fas fa-heart" style="color: red;"></i>1500 supporters</p><h2 class="btn btn-info"><a class="donate" data-toggle="popover" title="Please login for making donation!!" data-placement="bottom">DONATE NOW</a></h2></div>
+                                          </div>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="col-6 mb-4">
+                                </div>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-6 mb-4">
+                                    <div class="card mr-3">
+                                        <div class="card-body">
+                                          <h2>{{ allFundraisers[1].fundraise_name }}</h2>
+                                          <p><i class="fas fa-user"></i> by {{allFundraisers[1].fundraiseCreator }}</p>
+                                          <div class="progress-text">
+                                              <pre class="progress-top"><b>$5000</b> raised out of 
+$10000</pre>
+                                              <div class="progress">
+                                                  <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%"></div>
+                                              </div>
+                                          </div>
+                                          <div class="flex-container">
+                                            <div class="button-shr"><p><i class="far fa-clock"></i>40 days left</p><h2 class="btn btn-light btn btn-outline-secondary"><a class="share" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i> Share</a></h2></div>
+                                            <div class="button-dnt"><p><i class="fas fa-heart" style="color: red;"></i>2002 supporters</p><h2 class="btn btn-info"><a class="donate" data-toggle="popover" title="Please login for making donation!!" data-placement="bottom">DONATE NOW</a></h2></div>
+                                          </div>
+                                        </div>
+                                     </div>
+                                </div>
+                                <div class="col-6 mb-4">
+                                </div>
+                                
+                            </div>
+                          </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+                </div>
+            </div>
+        </div>
+      </section>
+      <!--- *** Trending fundraisers section *** -->
+
 	</main>
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					<div class="footer-charity-text">
+						<h2>Maithri</h2>
+						<p>Let's help together</p>
+						<hr>
+						<p><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a><a href="#"><i class="fab fa-dribbble" aria-hidden="true"></i></a></p>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<div class="col-md-4 col-sm-5">
+							<div class="footer-text one">
+								<h3>Causes</h3>
+								<ul>
+									<li><a href="#">Medical crowdfunding</a></li>
+									<li><a href="#">Education</a></li>
+									<li><a href="#">Animal Fundraisers</a></li>
+									<li><a href="#">Child Welfare</a></li>
+									<li><a href="#">Creative Fundraising</a></li>
+								</ul>
+							</div>
+						</div>
+					<div class="col-md-4 col-sm-3">
+							<div class="footer-text two">
+								<h3>USEFUL LINKS</h3>
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li><a href="howitworks.html">How it works</a></li>
+									<li><a href="login.php">Signup/login</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<div class="footer-text one">
+								<h3>CONTACT US</h3>
+								<ul>
+									<li><a href="#">location_on VNIT,Nagpur</a></li>
+									<li><a href="#">email iwpassignment2021@gmail.com</a></li>
+									<li><a href="#">call +919823456789</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>--->
+		</div>
+		<div class="footer_bottom">
+			<p>Copyright @ 2021<a href="index.html">Maithri</a> | Well known fundraiser </p>
+		</div>
+	</footer>
 	<!--***Main Page***-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/static/script.js" charset="utf-8"></script>
