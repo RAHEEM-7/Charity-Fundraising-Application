@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charity Life</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/style2.css">
+    <link rel="stylesheet" href="/static/css/style_beforelogin.css">
+	<!-- <link rel="icon" type="image/png" href="images/icon.png"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -23,13 +23,6 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item active"><a class="nav-link" href="{{ url_for('blogs')}}"><b><i>Home</i></b><span class="sr-only">(current)</span></a></li>
         <li class="nav-item"><a class="nav-link" href="browseFundraiser.php">Browse Fundraisers</a></li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fundraise for</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;" href="#">Medical Treatment</a>
-            <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;" href="#">NGO/Charity</a>
-            <div class="dropdown-divider"></div><a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;" href="#">Other Cause</a>
-          </div>
-        </li>
         <li class="nav-item"><a class="nav-link" href="{{ url_for('howitworks')}}">How it works</a></li>
         <form class="form-inline ">
           <input class="form-control mr-sm-2" type="search" onkeyup="showResult(this.value)" placeholder="Search" aria-label="Search">
@@ -37,7 +30,7 @@
           <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search" style="color:ghostwhite;"></i></button>
         </form>
         <li class="nav-item"><a class="btn btn-outline-success" type="button" href="https://api.whatsapp.com/send?phone=918919674844" target="_blank"><i class="fab fa-whatsapp" style="color: green;"></i> Chat</a></li>
-        <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;">Start a fundraiser</button>
+        <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;">New fundraiser</button>
         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i> </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ url_for('MyAccount')}}">My account</button>        
@@ -48,28 +41,47 @@
       </div>
     </nav>
 
-    <form class="cd-form" id="edit">
+    <form class="cd-form" style="text-align:center;" id="edit">
         <p class="fieldset">
-            <input class="full-width has-padding has-border" type="text" id="edit-name" value="{{ current_user.user_fullname }}" required>
+            <input class="full-width has-padding has-border" style="width:50%;" type="text" id="edit-name" value="{{ current_user.user_fullname }}" required>
         </p>
 
         <p class="fieldset">
-            <label class="image-replace cd-username" for="edit-username">Username</label>
-            <input class="full-width has-padding has-border" type="text" id="edit-username"  pattern="[A-Za-z0-9]+" title="Username should only contain letters and numbers only. e.g. john12345" value="{{ current_user.user_username }}"required>
+            <label class="image-replace cd-username" style="left: 26%;"for="edit-username">Username</label>
+            <input class="full-width has-padding has-border" style="width:50%;" type="text" id="edit-username"  pattern="[A-Za-z0-9]+" title="Username should only contain letters and numbers only. e.g. john12345" value="{{ current_user.user_username }}"required>
             <span class="cd-error-message">Error message here!</span>
         </p>
 
         <p class="fieldset">
-            <label class="image-replace cd-email" for="edit-email">E-mail</label>
-            <input class="full-width has-padding has-border" type="email" id="edit-email" value="{{ current_user.user_email }}" required>
+            <label class="image-replace cd-email" style="left: 26%;" for="edit-email">E-mail</label>
+            <input class="full-width has-padding has-border" style="width:50%;" type="email" id="edit-email" value="{{ current_user.user_email }}" required>
             <span class="cd-error-message">Error message here!</span>
         </p>
+        <!-- <button style="width:auto; display: inline;" id="otpsend" class="btn btn-info">Send Otp</button>
+        <input type="text" id="otp" placeholder="Enter OTP" required><br><br>
+
         <p class="fieldset">
-            <input class="full-width has-padding has-border" type="tel" id="edit-phone"  pattern="[0-9]{10}" value="{{ current_user.user_phone }}" required><br><br>
+            <label class="image-replace cd-password" for="password">Password</label>
+            <input class="full-width has-padding has-border" id="password" type="password"  placeholder="Password" required>
+            <a href="#0" class="hide-password">Show</a>
+            <span class="cd-error-message">Error message here!</span>
+        </p>
+        
+        <p class="fieldset">
+            <label class="image-replace cd-password" for="repeat-password">Confirm Password</label>
+            <input class="full-width has-padding has-border" id="repeat-password" type="password"  placeholder="Confirm Password" required>
+            <a href="#0" class="hide-password">Show</a>
+            <span class="cd-error-message">Error message here!</span>
+        </p> -->
+
+        <p class="fieldset">
+            <label class="image-replace cd-phone" style="left: 26%;" for="edit-phone">E-mail</label>
+            <input class="full-width has-padding has-border" style="width:50%;" type="tel" id="edit-phone"  pattern="[0-9]{10}" value="{{ current_user.user_phone }}" required>
+            <span class="cd-error-message">Error message here!</span>
         </p>
 
         <p class="fieldset">
-            <button class="full-width has-padding btn btn-info" type="submit">Edit Changes</button> 
+            <button class="full-width has-padding btn btn-info" style="width:50%;" type="submit">Edit Changes</button> 
         </p>
     </form>
 

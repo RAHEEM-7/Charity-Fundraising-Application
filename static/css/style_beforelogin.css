@@ -335,6 +335,11 @@ xsigin/signup popup
 .cd-form label.cd-password {
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-password.svg");
 }
+.cd-form label.cd-phone {
+  background-image: url("/static/images/phone.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
 .cd-form input {
   margin: 0;
   padding: 0;

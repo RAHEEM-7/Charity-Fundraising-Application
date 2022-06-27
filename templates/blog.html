@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Charity Life</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style_beforelogin.css">
     
 	<!-- <link rel="icon" type="image/png" href="images/icon.png"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
@@ -23,14 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item active"><a class="nav-link" href="{{ url_for('blogs')}}"><b><i>Home</i></b><span class="sr-only">(current)</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="browseFundraiser.php">Browse Fundraisers</a></li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fundraise for</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;" href="#">Medical Treatment</a>
-            <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;" href="#">NGO/Charity</a>
-            <div class="dropdown-divider"></div><a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter"style="width:auto;" href="#">Other Cause</a>
-          </div>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('browseFundraiser')}}">Browse Fundraisers</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ url_for('howitworks')}}">How it works</a></li>
         <form class="form-inline ">
           <input class="form-control mr-sm-2" type="search" onkeyup="showResult(this.value)" placeholder="Search" aria-label="Search">
@@ -90,6 +83,5 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/static/script.js" charset="utf-8"></script>
 <script src="/static/script2.js" charset="utf-8"></script>
 </body>

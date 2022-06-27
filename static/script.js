@@ -81,22 +81,13 @@ function signup(data) {
   .then((response) => {
     console.log(response);
     if (parseInt(response.flag)==1){
-    //   confirm("Signed up succesfully, you can login to your account");
-    //   location.reload();
-    location.replace("http://127.0.0.1:5000/blogs");
+		location.replace("http://127.0.0.1:5000/blogs");
     }
     else {
       alert("Username already exists");
     }
   })
   .catch((error) => console.log("Error h:",error));
-}
-
-function showAccount() {
-	// e.preventDefault();
-	console.log("My account");
-	var url = "http://127.0.0.1:5000/MyAccount";
-	location.replace(url);
 }
 
 jQuery(document).ready(function($){
@@ -328,7 +319,3 @@ document.getElementById("forgot").onsubmit = (e) => {
 	  })
 	  .catch((error) => console.log("Error h:", error));
 }
-$('#profile').on('click', function(event){
-	event.preventDefault();
-	console.log("profile came");
-});

@@ -117,8 +117,10 @@ def forget():
 @app.route('/MyAccount')
 @login_required
 def MyAccount():
+    allFundraisers = fundraise.query.where(fundraise.fundraiseCreator == current_user.user_username)
     print("My Account")
-    return render_template('MyAccount.html')
+
+    return render_template('MyAccount.html', allFundraisers=allFundraisers)
 
 @app.route('/howitworks')
 def howitworks():
@@ -183,6 +185,13 @@ def create_fundraiser():
     message={"flag":"1"}
     message['flag'] = 1
     return jsonify(message)
+
+@app.route('/browseFundraiser')
+def browseFundraiser():
+    print("Browse Fundraiser")
+    allFundraisers = fundraise.query.all()
+    return render_template('browseFundraiser.html', allFundraisers=allFundraisers)
+
 # app.run(host='localhost', port=5000)
 if __name__=="__main__":
     app.run(debug=True)

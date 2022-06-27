@@ -22,7 +22,11 @@
         <span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
+          {% if current_user.is_authenticated %} 
+          <li class="nav-item active"><a class="nav-link" href="{{ url_for('blogs')}}"><b><i>Home</i></b><span class="sr-only">(current)</span></a></li>
+          {% else %}
           <li class="nav-item active"><a class="nav-link" href="{{ url_for('index')}}"><b><i>Home</i></b><span class="sr-only">(current)</span></a></li>
+          {% endif %}
           <li class="nav-item"><a class="nav-link" data-toggle="popover" title="Please login to start a fundraiser!!" data-placement="bottom" href="{{ url_for('browseFundraiser')}}">Browse Fundraisers</a></li>
           <li class="nav-item"><a class="nav-link" href="{{ url_for('howitworks')}}">How it works</a></li>
           <form class="form-inline ">
@@ -30,14 +34,23 @@
             <div id="livesearch"></div>
           </form>
           <li class="nav-item"><a class="btn btn-outline-success" type="button" href="https://api.whatsapp.com/send?phone=919949097994" target="_blank"><i class="fab fa-whatsapp" style="color: green;"></i> Chat</a></li>
-          <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button"  data-toggle="popover" title="Please login to start a fundraiser!!" data-placement="bottom">New fundraiser</button>
-		  <li class="nav-item main-nav navstyle"><a class="cd-signin nav-link btn btn-sm" href="#0" style="width:auto;">Sign in/Register</a></li>
+					{% if current_user.is_authenticated %}  
+					<button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button" data-toggle="modal" data-target="#startFundraiser"style="color:white;width:auto;">New fundraiser</button>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i> </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="{{ url_for('MyAccount')}}">My account</button>        
+						<div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url_for('logout')}}">Logout</a>
+					</div>
+					</li>
+					{% else %}
+					<button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button"  data-toggle="popover" title="Please login to start a fundraiser!!" data-placement="bottom">New fundraiser</button>
+					<li class="nav-item main-nav navstyle"><a class="cd-signin nav-link btn btn-sm" href="#0" style="width:auto;">Sign in/Register</a></li>
+					{% endif %}
         </ul>
         </div>
     </nav>
-    <!--*** Responsive Nav Bar ***-->   
-  
-    <!--Signup Modal-->
+    <!-- End of Responsive Nav Bar -->
+     <!--Signup Modal-->
 	<div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
 		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
 			<ul class="cd-switcher">
@@ -131,7 +144,7 @@
 					<input type="text" id="forget-otp" placeholder="Enter OTP">
 					<button id="verify" onclick="otpVerification()" >verify</button>
 					<br><br>
-
+					
 					<p class="fieldset forget" id="u">
 						<label class="image-replace cd-username" for="forget-username">Username</label>
 						<input class="full-width has-padding has-border" type="text" id="forget-username" placeholder="Username" pattern="[A-Za-z0-9]+" title="Username should only contain letters and numbers only. e.g. john12345" required>
@@ -166,7 +179,53 @@
 	<main>
 	</main>
 	<!--***Main Page***-->
+
+	<div class="modal fade" id="startFundraiser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle" style="text-align:center;">Start a fundraiser</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+								<form id="startfundraiser">
+										<select id="fundraise_type" required>
+													<option disabled selected>Type of Fundraiser</option>
+													<option value="Medical Treatment">Medical Treatment</option>
+													<option value="NGO/Charity">NGO/Charity</option>
+													<option value="others">Other Cause</option>  
+										</select><br><br>
+										<input type="text" id="fundraise_name" placeholder="Name of FundRaiser" required><br><br>
+										<input type="number" min="1" id="fundraise_days" placeholder="Estimated Days" required><br><br>
+										<input type="number" min="1"  id="fundraise_amount" placeholder="Estimated Amount" required><br><br>
+										<textarea rows="5" cols="50" id="fundraise_description" placeholder="Description of your Fundraiser" required></textarea><br><br>
+										<input type="tel" id="fundraisePhone" placeholder="Phone: 98****" pattern="[0-9]{10}" required><br><br>
+										<!-- to-do upload file -upload image only-->
+										<span>Upload image related to your Fundraiser</span> <br>
+										<input type="file" id="fundraiseImage" accept="image/*"><br><br>
+										<input type="checkbox" required><span id="agreeterms"> Agree all terms and conditions</span><br>
+										<input type="submit" name="submit" value="Start your Fundraiser">
+								</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div>
+      {% for n in allFundraisers %}
+        <div class="container">
+          <p>Name : {{ n.fundraise_name }}</p>
+          <p>Type : {{ n.fundraise_type }}</p>
+          <p>Days : {{ n.fundraise_days }}</p>
+          <p>Amount : {{ n. fundraise_amount }}</p>
+          <p>Description : {{ n.fundraise_description }}</p>
+        </div>
+      {% endfor %}
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/static/script.js" charset="utf-8"></script>
   </body>
-
