@@ -3,7 +3,7 @@ from logging import exception
 from flask import Flask,render_template,request,redirect,jsonify,session
 from flask_login import login_required, current_user, login_user, logout_user
 import random
-
+from Chatbot.flow import get_prediction_first
 app=Flask(__name__)
 app.secret_key="hello"
 
@@ -192,6 +192,18 @@ def browseFundraiser():
     print("Browse Fundraiser")
     allFundraisers = fundraise.query.all()
     return render_template('browseFundraiser.html', allFundraisers=allFundraisers)
+
+
+@app.post("/predict")
+def predict():
+    """function to predict the response"""
+    text=request.get_json()
+    text1=text["MSG"]
+    text1=preprocessing(text1)
+    answer=get_prediction_first(text1)
+    message={"answer":text1}
+    print(text1)
+    return jsonify(message)
 
 # app.run(host='localhost', port=5000)
 if __name__=="__main__":
