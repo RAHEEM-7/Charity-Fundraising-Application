@@ -10,13 +10,24 @@
 # stockprice, stockprice_helper, news, connect_to_hmc
 # from Models import Bank_Customer_Data
 from Chatbot.prediction import predict_response, predict_intent
+from Chatbot.newfeatures import stockprice, stockprice_helper, news
+from Chatbot.webscrape.getNews import get_news
+
 # from Mail_to_HMC import mail
 # from webscrape.getNews import get_news
 # from webscrape.getCity import get_city
 # from VideoCall.zoomlink import create_meeting
 
 
-def get_prediction_first(text,idx,chance,chat_id,cache,fail,keys):
+def get_prediction_first(text):
+    if stockprice(text):
+        answer = stockprice_helper(text)
+        return [answer]
+
+    if news(text):
+        answer = get_news()
+        return [answer]
+    
     getresponse = predict_response(text)
-    answer = [getresponse, 0]
-    return [answer[0]]
+    return [getresponse]
+

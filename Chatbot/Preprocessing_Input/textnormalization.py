@@ -7,7 +7,9 @@ from word2number import w2n
 from num2words import num2words
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+# import nltk
 # nltk.download('stopwords')
+# nltk.download('punkt')
 nlp=spacy.load('en_core_web_lg')
 
 def convert(value):

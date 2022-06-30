@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import LabelEncoder
 import tensorflow
 from Chatbot.Preprocessing_Input import preprocessing, remove_stop_words
-from Chatbot.Model import train_chatbot
+# from Chatbot.Model import train_chatbot
 # loading responses
 
 with open("./Chatbot/Model/responses.json", "r",encoding='utf8') as res:
@@ -21,6 +21,7 @@ train = pd.read_csv("./Chatbot/Model/training_data.csv")
 
 def call_response(tag):
     """Return response"""
+    print('response=',secrets.choice(responses[tag]))
     return secrets.choice(responses[tag])
 
 # fitting TfIdfVectorizer with training data to preprocess inputs
