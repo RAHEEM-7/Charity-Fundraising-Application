@@ -403,7 +403,8 @@ input::-ms-clear, textarea::-ms-clear {
 
 .sectiontitle{
   font-family:'Times New Roman', Times, serif;
-  text-align: center;    
+  text-align: center;  
+  margin-top: 100px;  
 }
 .progress-top{
   font-family:sans-serif;

@@ -9,7 +9,7 @@
 # from extra_functionalities import account_balance,account_balance_helper, \
 # stockprice, stockprice_helper, news, connect_to_hmc
 # from Models import Bank_Customer_Data
-from Chatbot.prediction import predict_response, predict_intent
+# from Chatbot.prediction import predict_response, predict_intent
 from Chatbot.newfeatures import stockprice, stockprice_helper, news
 from Chatbot.webscrape.getNews import get_news
 
@@ -28,6 +28,7 @@ def get_prediction_first(text):
         answer = get_news()
         return [answer]
     
-    getresponse = predict_response(text)
-    return [getresponse]
+    # getresponse = predict_response(text)
+    # return [getresponse]
+    return [text]
 
