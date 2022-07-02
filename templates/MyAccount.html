@@ -1,46 +1,114 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">  
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Charity Life</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/css/style_beforelogin.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
-	<link rel="icon" type="image/png" href="images/icon.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/bd4d663ab2.js" crossorigin="anonymous"></script>
-  </head>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.png">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/static/assets/css/slicknav.css">
+    <link rel="stylesheet" href="/static/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/static/assets/css/progressbar_barfiller.css">
+    <link rel="stylesheet" href="/static/assets/css/gijgo.css">
+    <link rel="stylesheet" href="/static/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/static/assets/css/animated-headline.css">
+	<link rel="stylesheet" href="/static/assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="/static/assets/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="/static/assets/css/themify-icons.css">
+	<link rel="stylesheet" href="/static/assets/css/slick.css">
+	<link rel="stylesheet" href="/static/assets/css/nice-select.css">
+	<link rel="stylesheet" href="/static/assets/css/style.css">
+</head>
   <body>
-    <!-- Responsive Nav Bar -->
-    <nav class="navbar navbar-dark navbar-expand-lg bg-secondary bg-gradient">
-      <a class="navbar-brand" href="#"><img src="/static/images/logo.png" id="logo-charity" alt=""/></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item active"><a class="nav-link" href="{{ url_for('blogs')}}"><b><i>Home</i></b><span class="sr-only">(current)</span></a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('fundraisers')}}">Browse Fundraisers</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ url_for('howitworks')}}">How it works</a></li>
-        <form class="form-inline ">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn my-2 my-sm-0" type="submit"><i class="fas fa-search" style="color:ghostwhite;"></i></button>
-        </form>
-        <li class="nav-item"><a class="btn btn-outline-success" type="button" href="https://api.whatsapp.com/send?phone=919949097994" target="_blank"><i class="fab fa-whatsapp" style="color: green;"></i> Chat</a></li>
-        <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button" data-toggle="modal" data-target="#startFundraiser"style="color:white;width:auto;">New fundraiser</button>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i> </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url_for('edit')}}">Edit</a>
-            <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url_for('logout')}}">Logout</a>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+      <div class="preloader d-flex align-items-center justify-content-center">
+          <div class="preloader-inner position-relative">
+              <div class="preloader-circle"></div>
+              <div class="preloader-img pere-text">
+                  <img src="/static/images/logo.png" alt="">
+              </div>
           </div>
-        </li>
-      </ul>
       </div>
-    </nav>
+  </div>
+  <!-- Preloader Start -->
+  <header>
+      <!-- Header Start -->
+      <div class="header-area">
+          <div class="main-header ">
+              <div class="header-top d-none d-lg-block">
+                  <div class="container-fluid">
+                      <div class="col-xl-12">
+                          <div class="row d-flex justify-content-between align-items-center">
+                              <div class="header-info-left d-flex">
+                                  <ul>     
+                                      <li>Phone: +91 99490 97994</li>
+                                      <li>Email: abdulraheem0859@gmail.com</li>
+                                  </ul>
+                                  <div class="header-social">    
+                                      <ul>
+                                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                          <li><a  href="https://www.facebook.com/abdulraheem.mohammad.7127/"><i class="fab fa-facebook-f"></i></a></li>
+                                          <li><a href="https://www.linkedin.com/in/mohammad-abdul-raheem-553162219/"><i class="fab fa-linkedin-in"></i></a></li>
+                                          <li> <a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                      </ul>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="header-bottom  header-sticky">
+                  <div class="container-fluid">
+                      <div class="row align-items-center">
+                          <!-- Logo -->
+                          <div class="col-xl-2 col-lg-2">
+                              <div class="logo">
+                                  <a href="{{ url_for('index')}}"><img class="logo-main" src="/static/images/logo.png" alt=""></a>
+                              </div>
+                          </div>
+                          <div class="col-xl-10 col-lg-10">
+                              <div class="menu-wrapper  d-flex align-items-center justify-content-end">
+                                  <!-- Main-menu -->
+                                  <div class="main-menu d-none d-lg-block">
+                                      <nav>
+                                          <ul id="navigation">                                                                                          
+                                              <li><a class="btn" href="{{ url_for('index')}}">Home</a></li>
+                                              <li><a href="#">About</a></li>
+                                              <li><a href="{{ url_for('fundraisers')}}">Causes</a></li>
+                                              <li><a href="{{ url_for('contact')}}">Contact</a></li>
+                                              <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button" data-toggle="modal" data-target="#startFundraiser"style="width:auto;">Start a fundraiser</button>
+                                              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i> </a>
+                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                  <a class="dropdown-item" href="{{ url_for('MyAccount')}}">My account</button>        
+                                                  <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url_for('logout')}}">Logout</a>
+                                                </div>
+                                              </li>
+                                          </ul>
+                                      </nav>
+                                  </div>
+                                  <!-- He0ader-btn -->                                  
+                              </div>
+                          </div> 
+                          <!-- Mobile Menu -->
+                          <div class="col-12">
+                              <div class="mobile_menu d-block d-lg-none"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Header End -->
+  </header>
+  <!-- header end -->
+    
     <div class="modal fade" id="startFundraiser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -95,7 +163,7 @@
           <td style="text-align: center;">{{current_user.user_phone}}</td>
         </tr>
       </table>
-      <div>
+      <!-- <div>
         {% for n in allFundraisers %}
           <div class="container">
             <p>Name : {{ n.fundraise_name }}</p>
@@ -105,7 +173,188 @@
             <p>Description : {{ n.fundraise_description }}</p>
           </div>
         {% endfor %}
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/static/script2.js" charset="utf-8"></script>
+    </div> -->
+    <div class="row">
+      {% for n in allFundraisers %}
+      <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="single-cases mb-40">
+              <div class="cases-img">
+                  <img src= "/static/assets/img/gallery/case1.png" alt="">
+              </div>
+              <div class="cases-caption">
+                  <h3><a href="#">{{ n.fundraise_name }}</a></h3>
+                  <h6>{{ n.fundraise_type }}</h6>
+                  <div class="single-skill mb-15">
+                      <div class="bar-progress">
+                          <div id="bar1" class="barfiller">
+                              <div class="tipWrap">
+                                  <span class="tip"></span>
+                              </div>
+                              <span class="fill" data-percentage="70"></span>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="prices d-flex justify-content-between">
+                      <p>Raised:<span> $20,000</span></p>
+                      <p>Goal:<span> $35,000</span></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+    <footer>
+      <div class="footer-wrapper section-bg2" data-background="/static/assets/img/gallery/footer_bg.png">
+          <!-- Footer Top-->
+          <div class="footer-area footer-padding">
+              <div class="container">
+                  <div class="row d-flex justify-content-between">
+                      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                      <div class="single-footer-caption mb-50">
+                          <div class="single-footer-caption mb-30">
+                              <div class="footer-tittle">
+                                  <div class="footer-logo mb-20">
+                                      <a href="index.html"><img src="/static/assets/img/logo/logo2_footer.png" alt=""></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                          <div class="single-footer-caption mb-50">
+                              <div class="footer-tittle">
+                                  <h4>Contact Info</h4>
+                                  <ul>
+                                      <li>
+                                          <p>Address :Your address goes here, your demo address.</p>
+                                      </li>
+                                      <li><a href="#">Phone : +91 99490 97994</a></li>
+                                      <li><a href="#">Email : abdulraheem0859@gmail.com</a></li>
+                                  </ul>
+                              </div>
+
+                          </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                          <div class="single-footer-caption mb-50">
+                              <div class="footer-tittle">
+                                  <h4>Causes</h4>
+                                  <ul>
+                                      <li><a href="#">Medical crowdfunding</a></li>
+                                      <li><a href="#">Education</a></li>
+                                      <li><a href="#">Animal Fundraisers</a></li>
+                                      <li><a href="#">Child Welfare</a></li>
+                                      <li><a href="#">Creative Fundraising</a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                          <div class="single-footer-caption mb-50">
+                              <div class="footer-tittle">
+                                  <h4>Usefull Links</h4>
+                                  <ul>
+                                      <li><a href="{{ url_for('index')}}">Home</a></li>
+                                      <li><a href="{{ url_for('fundraisers')}}">Causes</a></li>
+                                      <li><a href="{{ url_for('contact')}}">Contact Us</a></li>
+                                      <li><a href="{{ url_for('index')}}">Login</a></li>
+                                      <li><a href="{{ url_for('index')}}">Register</a></li>
+                                  </ul>
+                              </div>
+                              <!-- Form -->
+                              <div class="footer-form" >
+                                  <div id="mc_embed_signup">
+                                      <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                      method="get" class="subscribe_form relative mail_part">
+                                          <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
+                                          class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
+                                          onblur="this.placeholder = ' Email Address '">
+                                          <div class="form-icon">
+                                              <button type="submit" name="submit" id="newsletter-submit"
+                                              class="email_icon newsletter-submit button-contactForm"><img src="/static/assets/img/gallery/form.png" alt=""></button>
+                                          </div>
+                                          <div class="mt-10 info"></div>
+                                      </form>
+                                  </div>
+                              </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- footer-bottom -->
+          <div class="footer-bottom-area">
+              <div class="container">
+                  <div class="footer-border">
+                      <div class="row d-flex justify-content-between align-items-center">
+                          <div class="col-xl-10 col-lg-9 ">
+                              <div class="footer-copy-right">
+                                  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                              </div>
+                          </div>
+                          <div class="col-xl-2 col-lg-3">
+                              <div class="footer-social f-right">
+                                  <a href="https://www.linkedin.com/in/mohammad-abdul-raheem-553162219/"><i class="fab fa-linkedin-in"></i></a>
+                                  <a  href="https://www.facebook.com/abdulraheem.mohammad.7127/"><i class="fab fa-facebook-f"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+  <!-- Scroll Up -->
+  <div id="back-top" >
+      <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+  </div>
+
+
+       <!-- JS here -->
+
+       <script src=".//static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+       <!-- Jquery, Popper, Bootstrap -->
+       <script src=".//static/assets/js/vendor/jquery-1.12.4.min.js"></script>
+       <script src=".//static/assets/js/popper.min.js"></script>
+       <script src=".//static/assets/js/bootstrap.min.js"></script>
+       <!-- Jquery Mobile Menu -->
+       <script src=".//static/assets/js/jquery.slicknav.min.js"></script>
+   
+       <!-- Jquery Slick , Owl-Carousel Plugins -->
+       <script src=".//static/assets/js/owl.carousel.min.js"></script>
+       <script src=".//static/assets/js/slick.min.js"></script>
+       <!-- One Page, Animated-HeadLin -->
+       <script src=".//static/assets/js/wow.min.js"></script>
+       <script src=".//static/assets/js/animated.headline.js"></script>
+       <script src=".//static/assets/js/jquery.magnific-popup.js"></script>
+   
+       <!-- Date Picker -->
+       <script src=".//static/assets/js/gijgo.min.js"></script>
+       <!-- Nice-select, sticky -->
+       <script src=".//static/assets/js/jquery.nice-select.min.js"></script>
+       <script src=".//static/assets/js/jquery.sticky.js"></script>
+       <!-- Progress -->
+       <script src=".//static/assets/js/jquery.barfiller.js"></script>
+       
+       <!-- counter , waypoint,Hover Direction -->
+       <script src=".//static/assets/js/jquery.counterup.min.js"></script>
+       <script src=".//static/assets/js/waypoints.min.js"></script>
+       <script src=".//static/assets/js/jquery.countdown.min.js"></script>
+       <script src=".//static/assets/js/hover-direction-snake.min.js"></script>
+   
+       <!-- contact js -->
+       <script src=".//static/assets/js/contact.js"></script>
+       <script src=".//static/assets/js/jquery.form.js"></script>
+       <script src=".//static/assets/js/jquery.validate.min.js"></script>
+       <script src=".//static/assets/js/mail-script.js"></script>
+       <script src=".//static/assets/js/jquery.ajaxchimp.min.js"></script>
+       
+       <!-- Jquery Plugins, main Jquery -->	
+       <script src=".//static/assets/js/plugins.js"></script>
+       <script src=".//static/assets/js/main.js"></script>
+       <script src=".//static/assets/js/script.js"></script>
   </body>

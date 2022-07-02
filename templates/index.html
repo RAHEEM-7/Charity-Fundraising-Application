@@ -83,7 +83,7 @@
                                                 <li><a href="#">About</a></li>
                                                 <li><a href="{{ url_for('fundraisers')}}">Causes</a></li>
                                                 <li><a href="{{ url_for('contact')}}">Contact</a></li>
-                                                {% if user==0 %}
+                                                {% if not current_user.is_authenticated %}
                                                 <li><a data-trigger="hover" data-toggle="popover" data-content="Please login for fundraising!!" data-placement="bottom" class="btn">New Fundraiser</a></li>
                                                 <li class="main-nav"><a href="#0" class="cd-signin nav-link btn btn-sm">SignIn/Register</a></li>
                                                 {% else %}
@@ -414,13 +414,13 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Important Link</h4>
+                                    <h4>Causes</h4>
                                     <ul>
-                                        <li><a href="#"> View Project</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="#">Proparties</a></li>
-                                        <li><a href="#">Support</a></li>
+                                        <li><a href="#">Medical crowdfunding</a></li>
+                                        <li><a href="#">Education</a></li>
+                                        <li><a href="#">Animal Fundraisers</a></li>
+                                        <li><a href="#">Child Welfare</a></li>
+                                        <li><a href="#">Creative Fundraising</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -428,9 +428,14 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Newsletter</h4>
-                                    <div class="footer-pera footer-pera2">
-                                    <p>Heaven fruitful doesn't over lesser in days. Appear creeping.</p>
+                                    <h4>Usefull Links</h4>
+                                    <ul>
+                                        <li><a href="{{ url_for('index')}}">Home</a></li>
+                                        <li><a href="{{ url_for('fundraisers')}}">Causes</a></li>
+                                        <li><a href="{{ url_for('contact')}}">Contact Us</a></li>
+                                        <li><a href="{{ url_for('index')}}">Login</a></li>
+                                        <li><a href="{{ url_for('index')}}">Register</a></li>
+                                    </ul>
                                 </div>
                                 <!-- Form -->
                                 <div class="footer-form" >

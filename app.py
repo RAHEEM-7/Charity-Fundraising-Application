@@ -30,11 +30,7 @@ def create_table():
 def index():
     # session['user']=str(random.randint(1,100000))
     latestFundraisers = fundraise.query.all()
-    if current_user.is_authenticated:
-        x=1
-    else:
-        x=0
-    return render_template("index.html",latestFundraisers=latestFundraisers,user=x)
+    return render_template("index.html",latestFundraisers=latestFundraisers)
 
 @app.route('/blogs')
 @login_required

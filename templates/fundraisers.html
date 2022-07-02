@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="/static/assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/images/logo.png">
 
 	<!-- CSS here -->
 	<link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
@@ -83,8 +83,18 @@
                                                 <li><a href="#">About</a></li>
                                                 <li><a class="btn"  href="{{ url_for('fundraisers')}}">Causes</a></li>
                                                 <li><a href="{{ url_for('contact')}}">Contact</a></li>
+                                                {% if not current_user.is_authenticated%}
                                                 <li><a data-trigger="hover" data-toggle="popover" data-content="Please login for fundraising!!" data-placement="bottom" class="btn">New Fundraiser</a></li>
                                                 <li class="main-nav"><a href="#0" class="cd-signin nav-link btn btn-sm">SignIn/Register</a></li>
+                                                {% else %}
+                                                <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button" data-toggle="modal" data-target="#startFundraiser"style="width:auto;">Start a fundraiser</button>
+                                                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i> </a>
+                                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <a class="dropdown-item" href="{{ url_for('MyAccount')}}">My account</button>        
+                                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url_for('logout')}}">Logout</a>
+                                                  </div>
+                                                </li>
+                                                {% endif %}
                                             </ul>
                                         </nav>
                                     </div>
@@ -179,8 +189,8 @@
                                         <li>
                                             <p>Address :Your address goes here, your demo address.</p>
                                         </li>
-                                        <li><a href="#">Phone : +8880 44338899</a></li>
-                                        <li><a href="#">Email : info@colorlib.com</a></li>
+                                        <li><a href="#">Phone : +91 99490 97994</a></li>
+                                        <li><a href="#">Email : abdulraheem0859@gmail.com</a></li>
                                     </ul>
                                 </div>
 
@@ -189,13 +199,13 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Important Link</h4>
+                                    <h4>Causes</h4>
                                     <ul>
-                                        <li><a href="#"> View Project</a></li>
-                                        <li><a href="#">Contact Us</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="#">Proparties</a></li>
-                                        <li><a href="#">Support</a></li>
+                                        <li><a href="#">Medical crowdfunding</a></li>
+                                        <li><a href="#">Education</a></li>
+                                        <li><a href="#">Animal Fundraisers</a></li>
+                                        <li><a href="#">Child Welfare</a></li>
+                                        <li><a href="#">Creative Fundraising</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -203,9 +213,14 @@
                         <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                             <div class="single-footer-caption mb-50">
                                 <div class="footer-tittle">
-                                    <h4>Newsletter</h4>
-                                    <div class="footer-pera footer-pera2">
-                                    <p>Heaven fruitful doesn't over lesser in days. Appear creeping.</p>
+                                    <h4>Usefull Links</h4>
+                                    <ul>
+                                        <li><a href="{{ url_for('index')}}">Home</a></li>
+                                        <li><a href="{{ url_for('fundraisers')}}">Causes</a></li>
+                                        <li><a href="{{ url_for('contact')}}">Contact Us</a></li>
+                                        <li><a href="{{ url_for('index')}}">Login</a></li>
+                                        <li><a href="{{ url_for('index')}}">Register</a></li>
+                                    </ul>
                                 </div>
                                 <!-- Form -->
                                 <div class="footer-form" >
@@ -237,16 +252,13 @@
                             <div class="col-xl-10 col-lg-9 ">
                                 <div class="footer-copy-right">
                                     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
                                 </div>
                             </div>
                             <div class="col-xl-2 col-lg-3">
                                 <div class="footer-social f-right">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a  href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fas fa-globe"></i></a>
-                                    <a href="#"><i class="fab fa-behance"></i></a>
+                                    <a href="https://www.linkedin.com/in/mohammad-abdul-raheem-553162219/"><i class="fab fa-linkedin-in"></i></a>
+                                    <a  href="https://www.facebook.com/abdulraheem.mohammad.7127/"><i class="fab fa-facebook-f"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -260,7 +272,6 @@
     <div id="back-top" >
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
-
     <!-- JS here -->
 
     <script src=".//static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
