@@ -29,8 +29,8 @@ def create_table():
 @app.get("/")
 def index():
     # session['user']=str(random.randint(1,100000))
-    allFundraisers = fundraise.query.all()
-    return render_template("index.html",allFundraisers=allFundraisers)
+    latestFundraisers = fundraise.query.all()
+    return render_template("index.html",latestFundraisers=latestFundraisers)
 
 @app.route('/blogs')
 @login_required
@@ -119,7 +119,7 @@ def forget():
 @app.route('/MyAccount')
 @login_required
 def MyAccount():
-    allFundraisers = fundraise.query.where(fundraise.fundraiseCreator == current_user.user_username)
+    allFundraisers = fundraise.query.where(fundraise.fundraiseCreator == current_user.user_username).order_by(fundraise.fundraise_reg_date).all()
     print("My Account")
 
     return render_template('MyAccount.html', allFundraisers=allFundraisers)
@@ -188,8 +188,8 @@ def create_fundraiser():
     message['flag'] = 1
     return jsonify(message)
 
-@app.route('/browseFundraiser')
-def browseFundraiser():
+@app.route('/fundraisers')
+def fundraisers():
     print("Browse Fundraiser")
     allFundraisers = fundraise.query.all()
     return render_template('browseFundraiser.html', allFundraisers=allFundraisers)
