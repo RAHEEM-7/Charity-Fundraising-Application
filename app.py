@@ -30,12 +30,16 @@ def create_table():
 def index():
     # session['user']=str(random.randint(1,100000))
     latestFundraisers = fundraise.query.all()
-    return render_template("index.html",latestFundraisers=latestFundraisers)
+    if current_user.is_authenticated:
+        x=1
+    else:
+        x=0
+    return render_template("index.html",latestFundraisers=latestFundraisers,user=x)
 
 @app.route('/blogs')
 @login_required
 def blogs():
-    return render_template('blog.html')
+    return render_template('index.html')
 
 @app.post("/signup")
 def signup():
@@ -192,8 +196,12 @@ def create_fundraiser():
 def fundraisers():
     print("Browse Fundraiser")
     allFundraisers = fundraise.query.all()
-    return render_template('browseFundraiser.html', allFundraisers=allFundraisers)
+    length=len(allFundraisers)
+    return render_template('fundraisers.html', allFundraisers=allFundraisers,length=length)
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.post("/predict")
 def predict():

@@ -265,6 +265,10 @@ p {
 .fix {
   overflow: hidden;
 }
+.logo-main{
+width:150px; 
+height:100px;
+}
 
 /* line 59, C:/Users/HP/Desktop/jun-2020/277.Charity _Non-profit/assets/scss/_common.scss */
 .clear {

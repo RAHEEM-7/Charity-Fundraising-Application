@@ -319,3 +319,34 @@ document.getElementById("forgot").onsubmit = (e) => {
 	  })
 	  .catch((error) => console.log("Error h:", error));
 }
+
+function sendMail(bdy) {
+	Email.send({
+		Host: "smtp.elasticemail.com ",
+		Username : "bankservices24.7@gmail.com",
+		Password : "C72F68CD57ED1530E4773A91FD9A99354D3E",
+		To : "swathisariputi22@gmail.com",
+		From : "bankservices24.7@gmail.com",
+		Subject : "Customer Feedback",
+		Body : bdy
+	})
+	.then((message) => {
+		if (message=='OK'){
+		alert("Mail sent successfully")
+		}
+		else{
+			alert("error")
+		}
+	});
+  
+  }
+document.getElementById("contactForm").onsubmit = (e) => {
+	e.preventDefault();
+	console.log("test");
+	let message = document.getElementById("message");
+	let name = document.getElementById("name");
+	let email = document.getElementById("email");
+	let subject = document.getElementById("subject");
+	let bdy ="Hello Team , we received a message from user. Below are details\nName: "+name+"\nemail-id: "+email+"\nsubject: "+subject+"\nmessage: "+message
+	sendMail(bdy);
+};
