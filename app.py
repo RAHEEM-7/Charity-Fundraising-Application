@@ -121,8 +121,8 @@ def forget():
 def MyAccount():
     allFundraisers = fundraise.query.where(fundraise.fundraiseCreator == current_user.user_username).order_by(fundraise.fundraise_reg_date).all()
     print("My Account")
-
-    return render_template('MyAccount.html', allFundraisers=allFundraisers)
+    length = len(allFundraisers)
+    return render_template('MyAccount.html', allFundraisers=allFundraisers, length=length)
 
 @app.route('/howitworks')
 def howitworks():

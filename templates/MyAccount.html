@@ -163,18 +163,55 @@
           <td style="text-align: center;">{{current_user.user_phone}}</td>
         </tr>
       </table>
-      <!-- <div>
-        {% for n in allFundraisers %}
-          <div class="container">
-            <p>Name : {{ n.fundraise_name }}</p>
-            <p>Type : {{ n.fundraise_type }}</p>
-            <p>Days : {{ n.fundraise_days }}</p>
-            <p>Amount : {{ n. fundraise_amount }}</p>
-            <p>Description : {{ n.fundraise_description }}</p>
-          </div>
-        {% endfor %}
-    </div> -->
-    <div class="row">
+    <!-- Our Cases Start -->
+    <div class="our-cases-area section-padding30">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-7 col-md-10 col-sm-10">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle text-center mb-80">
+                        {% if length>0 %}
+                        <h2>Explore your causes</h2>
+                        {% else %}   
+                        <h2>No active causes now</h2>     
+                        {% endif %}        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for n in allFundraisers %}
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-cases mb-40">
+                        <div class="cases-img">
+                            <img src= "/static/assets/img/gallery/case1.png" alt="">
+                        </div>
+                        <div class="cases-caption">
+                            <h3><a href="#">{{ n.fundraise_name }}</a></h3>
+                            <h6>{{ n.fundraise_type }}</h6>
+                            <div class="single-skill mb-15">
+                                <div class="bar-progress">
+                                    <div id="bar1" class="barfiller">
+                                        <div class="tipWrap">
+                                            <span class="tip"></span>
+                                        </div>
+                                        <span class="fill" data-percentage="70"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="prices d-flex justify-content-between">
+                                <p>Raised:<span> $20,000</span></p>
+                                <p>Goal:<span> $35,000</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Our Cases End -->
+    <!-- <div class="row">
       {% for n in allFundraisers %}
       <div class="col-lg-4 col-md-6 col-sm-6">
           <div class="single-cases mb-40">
@@ -203,7 +240,7 @@
           </div>
       </div>
       {% endfor %}
-  </div>
+  </div> -->
     <footer>
       <div class="footer-wrapper section-bg2" data-background="/static/assets/img/gallery/footer_bg.png">
           <!-- Footer Top-->
