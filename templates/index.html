@@ -246,6 +246,41 @@
 		</div> <!-- cd-user-modal-container -->
 	</div> <!-- cd-user-modal -->
    <!--***Signup Modal***-->
+   <div class="modal fade" id="startFundraiser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle" style="text-align:center;">Start a fundraiser</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                <form id="startfundraiser">
+                    <select id="fundraise_type" required>
+                          <option disabled selected>Type of Fundraiser</option>
+                          <option value="Medical Treatment">Medical Treatment</option>
+                          <option value="NGO/Charity">NGO/Charity</option>
+                          <option value="others">Other Cause</option>  
+                    </select><br><br>
+                    <input type="text" id="fundraise_name" placeholder="Name of FundRaiser" required><br><br>
+                    <input type="number" min="1" id="fundraise_days" placeholder="Estimated Days" required><br><br>
+                    <input type="number" min="1"  id="fundraise_amount" placeholder="Estimated Amount" required><br><br>
+                    <textarea rows="5" cols="50" id="fundraise_description" placeholder="Description of your Fundraiser" required></textarea><br><br>
+                    <input type="tel" id="fundraisePhone" placeholder="Phone: 98****" pattern="[0-9]{10}" required><br><br>
+                    <!-- to-do upload file -upload image only-->
+                    <span>Upload image related to your Fundraiser</span> <br>
+                    <input type="file" id="fundraiseImage" accept="image/*"><br><br>
+                    <input type="checkbox" required><span id="agreeterms"> Agree all terms and conditions</span><br>
+                    <input type="submit" name="submit" value="Start your Fundraiser">
+                </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <main>
     <!-- slider Area Start-->
     <div class="slider-area">
