@@ -66,7 +66,7 @@ body {
   flex: 0 1 45px;
   position: relative;
   z-index: 2;
-  background: #d71e28;
+  background: #D61C4E;
   color: #fff;
   text-align: left;
   padding: 10px 10px 10px 50px;
@@ -349,7 +349,7 @@ body {
 .fa-eye {
   cursor: pointer;
   font-size: 24px;
-  color: #d71e28;
+  color: #D61C4E;
   padding-right: 6px;
   display: none;
 }
@@ -357,7 +357,7 @@ body {
 .fa-eye-slash {
   cursor: pointer;
   font-size: 24px;
-  color: #d71e28;
+  color: #D61C4E;
   padding-right: 6px;
   display: none;
 }
@@ -378,13 +378,13 @@ body {
 .fa-microphone {
   cursor: pointer;
   font-size: 24px;
-  color: #d71e28;
+  color: #D61C4E;
 }
 
 .fa-paper-plane {
   cursor: pointer;
   font-size: 24px;
-  color: #d71e28;
+  color: #D61C4E;
 }
 
 .send-message-button {
@@ -433,7 +433,7 @@ body {
 .listening-box__mic__icon {
   margin: auto;
   font-size: 24px;
-  color: #d71e28;
+  color: #D61C4E;
 }
 
 .listening-box__title {
