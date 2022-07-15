@@ -30,6 +30,13 @@
 	<link rel="stylesheet" href="/static/assets/css/style.css">
     <link rel="stylesheet" href="/static/assets/css/style_chatbot.css">
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('[data-bs-toggle="popover"]').popover();
+    });
+     </script>
 </head>
 <body>
     <!-- ? Preloader Start -->
@@ -90,13 +97,14 @@
                                                 <li><a href="{{ url_for('fundraisers')}}">Causes</a></li>
                                                 <li><a href="{{ url_for('contact')}}">Contact</a></li>
                                                 {% if not current_user.is_authenticated %}
-                                                <li><a data-trigger="hover" data-toggle="popover" data-content="Please login for fundraising!!" data-placement="bottom" class="btn">New Fundraiser</a></li>
+                                                <li><a class="btn" data-bs-trigger="hover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Please login or Signup to start a fundraiser">New Fundraiser</a></li>
                                                 <li class="main-nav"><a href="#0" class="cd-signin nav-link btn btn-sm">SignIn/Register</a></li>
                                                 {% else %}
                                                 <button class="nav-item btn btn-sm btn-outline-secondary ml-sm-2" type="button" data-toggle="modal" data-target="#startFundraiser"style="width:auto;">Start a fundraiser</button>
                                                 <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i> </a>
                                                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                    <a class="dropdown-item" href="{{ url_for('MyAccount')}}">My account</button>        
+                                                    <a class="dropdown-item" href="{{ url_for('MyAccount')}}">My account</a>     
+                                                    <a class="dropdown-item" href="{{ url_for('edit')}}">Update</a>    
                                                     <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ url_for('logout')}}">Logout</a>
                                                   </div>
                                                 </li>
@@ -595,10 +603,6 @@
     <script src=".//static/assets/js/plugins.js"></script>
     <script src=".//static/assets/js/main.js"></script>
     <script src=".//static/assets/js/script.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="popover"]').popover();   
-        });
-    </script>
+
     </body>
 </html>

@@ -46,22 +46,22 @@ def convert_only_numeric(words):
     i=0
     while i<len_of_words:
         try:
-            if not words[i].isnumeric() and w2n.word_to_num(words[i]):
-                numeric.append(w2n.word_to_num(words[i]))
+            if not words[i].isnumeric() and w2n.word_to_num(words[i]): 
+                numeric.append(w2n.word_to_num(words[i]))  
             else:
-                numeric.append(int(words[i]))
-                words[i]=num2words(words[i])
+                numeric.append(int(words[i]))  
+                words[i]=num2words(words[i])   
         except ValueError:
-            numeric.append(words[i])
-        i+=1
-    return numeric
+            numeric.append(words[i])   
+        i+=1    
+    return numeric,words
 
 def get_value(idx_j,numeric,words):
     """ Get value """
     wton=''
     idx_i=idx_j
     while idx_i < len(numeric):
-        if isinstance(numeric[idx_i], int):
+        if isinstance(numeric[idx_i], int): 
             idx_j=idx_j+1
             wton=wton+' '+words[idx_i]
             idx_i=idx_i+1
@@ -71,21 +71,21 @@ def get_value(idx_j,numeric,words):
 
 def convert_numeric_num(sentence):
     """convert numeric words"""
-    words=sentence.split()
+    words=sentence.split()  "I have 2 thousand" i,have,2,thou
     num=""
-    numeric=convert_only_numeric(words)
+    numeric,words=convert_only_numeric(words)
     length=len(numeric)
     number=[]
     idx_j=0
     while idx_j<length:
-        wton,idx_j=get_value(idx_j,numeric,words)
-        wton=remove_stop_words(wton)
+        wton,idx_j=get_value(idx_j,numeric,words)  
+        wton=remove_stop_words(wton)  
         if len(wton)>0:
             try:
-                val=w2n.word_to_num(wton)
+                val=w2n.word_to_num(wton) 
             except ValueError:
                 val=wton
-            number.append(val)
+            number.append(val) 
         if idx_j<length:
             number.append(words[idx_j])
         idx_j=idx_j+1

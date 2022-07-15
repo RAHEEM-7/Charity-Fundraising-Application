@@ -22,7 +22,7 @@ for pattern in train["patterns"]:
 train=train.replace(to_replace=patterns,value=patterns_processed)
 # print(train["patterns"])
 
-vectorizer = TfidfVectorizer(ngram_range=(1,10))
+vectorizer = TfidfVectorizer(ngram_range=(1,10))  "how are you" 
 train_tfidf_patterns = vectorizer.fit_transform(train["patterns"]).toarray()
 
 # preprocessing target variable(tags)

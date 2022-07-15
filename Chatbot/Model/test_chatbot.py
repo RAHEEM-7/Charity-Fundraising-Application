@@ -19,6 +19,8 @@ bot_model = tensorflow.keras.models.load_model("bot_model")
 # importing training data
 train = pd.read_csv("./Chatbot/Model/training_data.csv")
 
+
+
 def call_response(tag):
     """Return response"""
     print('response=',secrets.choice(responses[tag]))
