@@ -206,8 +206,8 @@ def predict():
     text1=text["MSG"]
     text1=preprocessing(text1)
     answer=get_prediction_first(text1)
-    message={"answer":text1}
-    print(text1)
+    message={"answer":answer}
+    # print(text1)
     return jsonify(message)
 
 # app.run(host='localhost', port=5000)

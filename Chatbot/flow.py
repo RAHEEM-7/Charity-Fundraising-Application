@@ -28,8 +28,9 @@ def get_prediction_first (text):
     if news(text):
         answer = get_news()
         return [answer]
-    
+    print("text = ", text)
     getresponse = predict_response(text)
+    print("getresponse = ", getresponse)
     return [getresponse]
     # return [text]
 

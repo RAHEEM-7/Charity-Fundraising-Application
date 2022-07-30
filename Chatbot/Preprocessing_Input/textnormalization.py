@@ -71,7 +71,7 @@ def get_value(idx_j,numeric,words):
 
 def convert_numeric_num(sentence):
     """convert numeric words"""
-    words=sentence.split()  "I have 2 thousand" i,have,2,thou
+    words=sentence.split()  
     num=""
     numeric,words=convert_only_numeric(words)
     length=len(numeric)
