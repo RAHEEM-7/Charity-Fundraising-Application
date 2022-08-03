@@ -1,0 +1,146 @@
+Deep learning is the subfield of machine learning which is used to perform complex tasks 
+such as speech recognition, text classification, etc. A deep learning model 
+consists of activation function, input, output, hidden layers, loss function, etc. 
+Any deep learning model tries to generalize the data using an algorithm and 
+tries to make predictions on the unseen data. 
+
+
+Epoch – The number of times the algorithm runs on the whole training dataset.
+
+Sample – A single row of a dataset.
+
+Batch – It denotes the number of samples to be taken to for updating the model parameters.
+
+Learning rate – It is a parameter that provides the model a scale of how much model weights should be updated.
+
+Cost Function/Loss Function – A cost function is used to calculate the cost that is the difference between the predicted value and the actual value.
+
+Weights/ Bias – The learnable parameters in a model that controls the signal between two neurons.
+
+Activation function : softmax
+
+The activation function calculates a weighted total and then adds bias 
+to it to decide whether a neuron should be activated or not.
+if the total input crosses the threshold then the
+neuron gets activated. 
+The Activation Function's goal is to introduce non-linearity into a neuron's output.
+
+Types of Activation function :
+Linear Activation Function : 
+
+y = mx + c;
+Pros : simple
+
+cons : 
+1 ) Differential result is constant.
+Differential of linear function is constant and has no relation with the input.
+Which implies weights and bias will be updated during the backprop 
+but the updating factor (gradient) would be the same.
+
+2) All layers of the neural network collapse into one.
+linear activation functions, no matter how many layers in the neural network, 
+the last layer will be a linear function of the first layer — 
+Meaning Output of the first layer is same as the output of the nth layer.
+
+
+Binary Step function : 
+
+f(x) = 0 if x < 0
+     = 1 if x >= 0
+
+Pros and Cons :
+
+The gradient(differential ) of the binary step function is zero,which is the very 
+big problem in back prop for weight updation.
+Another problem with a step function is that it can handle binary class problem alone.
+(Though with some tweak we can use it for multi-class problem)
+
+Non-linear activation function: 
+Most modern neural network use the non-linear function as their activation function to fire the neuron.
+Advantage of Non-linear function over the Linear function :
+Differential are possible in all the non -linear function.
+Stacking of network is possible , which helps us in creating the deep neural nets.
+
+1. Sigmoid Function : f(x) = 1 / (1 + e^(-x));
+
+output is always 0 to 1.
+Sigmoid is S-shaped , ‘monotonic’ & ‘differential’ function.
+Derivative of the sigmoid function is not “monotonic”.
+Sigmoid is very popular in classification problems
+
+Cons:
+Derivative of sigmoid function suffers “Vanishing gradient and Exploding gradient problem”.
+Sigmoid function in not “zero-centric”.This makes the gradient updates go too far in different directions.
+ 0 < output < 1, and it makes optimization harder.
+Slow convergence- as its computationally heavy.(Reason use of exponential math function )
+
+2. ReLu Activation Function(ReLu — Rectified Linear Units):
+f(x) = 0 if x < 0
+     = x if x > 0
+The function and its derivative both are monotonic.
+Main advantage of using the ReLU function- It does not activate all the neurons at the same time.
+Computationally efficient
+Converge very fast
+
+Cons:
+
+ReLu function in not “zero-centric”.This makes the gradient updates go too far in different directions. 
+0 < output < 1, and it makes optimization harder.
+Dead neuron is the biggest problem.This is due to Non-differentiable at zero.
+
+Problem of Dying neuron/Dead neuron : As the ReLu derivative f’(x) is not 0 for the positive values of the neuron 
+(f’(x)=1 for x ≥ 0), ReLu does not saturate (exploid) and no dead neurons (Vanishing neuron)are reported. 
+Saturation and vanishing gradient only occur for negative values that, given to ReLu, are turned into 0- 
+This is called the problem of dying neuron.
+
+3 . Leaky ReLu Activation Function
+f(x) = 0 if x < 0
+     = x if x > 0
+Leaky ReLU is defined to address problem of dying neuron/dead neuron.
+Problem of dying neuron/dead neuron is addressed by introducing a small 
+slope having the negative values scaled by α enables their corresponding neurons to “stay alive”.
+
+Cons:
+
+Leaky ReLU does not provide consistent predictions for negative input values.
+
+4. Softmax or normalized exponential function:
+The “softmax” function is also a type of sigmoid function but it is very useful to handle 
+multi-class classification problems.
+
+“Softmax can be described as the combination of multiple sigmoidal function.”
+
+“Softmax function returns the probability for a datapoint belonging to each individual class.”
+
+While building a network for a multiclass problem, the output layer would have as many neurons 
+as the number of classes in the target.
+
+For instance if you have three classes[A,B,C], there would be three neurons in the output layer. 
+Suppose you got the output from the neurons as [2.2 , 4.9 , 1.75].Applying the softmax function 
+over these values, you will get the following result — [0.52 , 0.21, 0.27]. 
+These represent the probability for the data point belonging to each class. 
+From result we can that the input belong to class A.
+
+“Note that the sum of all the values is 1.”
+
+
+
+Optimizers, rmsprop:
+An optimizer is a function or an algorithm that modifies the attributes of the neural network, 
+such as weights and learning rate. 
+Thus, it helps in reducing the overall loss and improve the accuracy.
+optimizers widely affect the accuracy of the deep learning model. 
+
+rmsprop algorithm converges quickly and requires lesser tuning than gradient descent algorithms.
+
+loss, categorical_crossentropy:
+
+Neural Network uses optimising strategies like stochastic gradient descent to minimize the error 
+in the algorithm. The way we actually compute this error is by using a Loss Function. 
+It is used to quantify how good or bad the model is performing. These are divided into 
+two categories i.e.Regression loss and Classification Loss.
+
+categorical cross entropy is used in multi-class classification problems.
+Cross-Entropy calculates the average difference between the predicted and actual probabilities.
+
+bot_model = Sequential()
